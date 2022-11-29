@@ -23,7 +23,7 @@
         <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
-            {!! Form::label('name', __('product.product_name') . ':*') !!}
+            {!! Form::label('name/Barcode', __('product.product_name') . ':*') !!}
               {!! Form::text('name', !empty($duplicate_product->name) ? $duplicate_product->name : null, ['class' => 'form-control', 'required',
               'placeholder' => __('product.product_name')]); !!}
           </div>

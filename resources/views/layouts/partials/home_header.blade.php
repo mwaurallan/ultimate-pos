@@ -11,7 +11,8 @@
       <a class="navbar-brand" href="/">{{config('app.name', 'ultimatePOS')}}</a>
       <a>"kasaaaa"</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
+    <div id="navclear
+    bar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         @if(Auth::check())
             <li><a href="{{ action('HomeController@index') }}">@lang('home.home')</a></li>
