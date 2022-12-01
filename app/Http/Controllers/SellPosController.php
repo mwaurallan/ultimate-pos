@@ -617,8 +617,9 @@ class SellPosController extends Controller
             'decimal_separator' => $business_details->decimal_separator,
         ];
         $receipt_details->currency = $currency_details;
-        $till_details="34344";
-        
+        $till_details="8012484";
+//        $rctmsg = "Thankyou For Shopping With Us";
+
         if ($is_package_slip) {
             $output['html_content'] = view('sale_pos.receipts.packing_slip', compact('receipt_details','till_details'))->render();
             return $output;

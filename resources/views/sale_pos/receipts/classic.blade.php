@@ -417,7 +417,7 @@
 						</td>
 					</tr>
 				<tr>
-					<th>Wamjululussndfjkdnkddk</th>
+					<th>Mpesa Till:</th>
 					<td>{{$till_details}}</td>
 				</tr>
         	</table>
