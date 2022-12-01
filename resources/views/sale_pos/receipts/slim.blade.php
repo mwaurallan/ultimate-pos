@@ -29,18 +29,18 @@
 					</span>
 					<br/>
 				@endif
-				
+
 				@if(!empty($receipt_details->address))
 					{!! $receipt_details->address !!}
 					<br/>
 				@endif
 
-				{{--
+
 				@if(!empty($receipt_details->contact))
 					<br/>{{ $receipt_details->contact }}
 				@endif
 				@if(!empty($receipt_details->contact) && !empty($receipt_details->website))
-					, 
+					,
 				@endif
 				@if(!empty($receipt_details->website))
 					{{ $receipt_details->website }}
@@ -48,7 +48,7 @@
 				@if(!empty($receipt_details->location_custom_fields))
 					<br>{{ $receipt_details->location_custom_fields }}
 				@endif
-				--}}
+
 
 				@if(!empty($receipt_details->sub_heading_line1))
 					{{ $receipt_details->sub_heading_line1 }}<br/>
@@ -61,7 +61,7 @@
 				@endif
 				@if(!empty($receipt_details->sub_heading_line4))
 					{{ $receipt_details->sub_heading_line4 }}<br/>
-				@endif		
+				@endif
 				@if(!empty($receipt_details->sub_heading_line5))
 					{{ $receipt_details->sub_heading_line5 }}<br/>
 				@endif
@@ -104,7 +104,7 @@
 				@if(!empty($receipt_details->sales_person_label))
 					<tr>
 						<th>{{$receipt_details->sales_person_label}}</th>
-					
+
 						<td>{{$receipt_details->sales_person}}</td>
 					</tr>
 				@endif
@@ -112,7 +112,7 @@
 				@if(!empty($receipt_details->brand_label) || !empty($receipt_details->repair_brand))
 					<tr>
 						<th>{{$receipt_details->brand_label}}</th>
-					
+
 						<td>{{$receipt_details->repair_brand}}</td>
 					</tr>
 				@endif
@@ -120,23 +120,23 @@
 				@if(!empty($receipt_details->device_label) || !empty($receipt_details->repair_device))
 					<tr>
 						<th>{{$receipt_details->device_label}}</th>
-					
+
 						<td>{{$receipt_details->repair_device}}</td>
 					</tr>
 				@endif
-				
+
 				@if(!empty($receipt_details->model_no_label) || !empty($receipt_details->repair_model_no))
 					<tr>
 						<th>{{$receipt_details->model_no_label}}</th>
-					
+
 						<td>{{$receipt_details->repair_model_no}}</td>
 					</tr>
 				@endif
-				
+
 				@if(!empty($receipt_details->serial_no_label) || !empty($receipt_details->repair_serial_no))
 					<tr>
 						<th>{{$receipt_details->serial_no_label}}</th>
-					
+
 						<td>{{$receipt_details->repair_serial_no}}</td>
 					</tr>
 				@endif
@@ -203,7 +203,7 @@
 						@endif
 		        	</td>
 		        </tr>
-				
+
 				@if(!empty($receipt_details->client_id_label))
 					<tr>
 						<th>
@@ -214,7 +214,7 @@
 						</td>
 					</tr>
 				@endif
-				
+
 				@if(!empty($receipt_details->customer_tax_label))
 					<tr>
 						<th>
@@ -233,7 +233,7 @@
 						</td>
 					</tr>
 				@endif
-				
+
 				@if(!empty($receipt_details->customer_rp_label))
 					<tr>
 						<th>
@@ -246,7 +246,7 @@
 				@endif
 			</table>
 
-				
+
             <table style="padding-top: 5px !important" class="border-bottom width-100">
                 <thead class="border-bottom-dotted">
                     <tr>
@@ -272,11 +272,11 @@
 	                        	{{$loop->iteration}}
 	                        </td>
 	                        <td class="description">
-	                        	{{$line['name']}} {{$line['product_variation']}} {{$line['variation']}} 
+	                        	{{$line['name']}} {{$line['product_variation']}} {{$line['variation']}}
 	                        	@if(!empty($line['sub_sku'])), {{$line['sub_sku']}} @endif @if(!empty($line['brand'])), {{$line['brand']}} @endif @if(!empty($line['cat_code'])), {{$line['cat_code']}}@endif
 	                        	@if(!empty($line['product_custom_fields'])), {{$line['product_custom_fields']}} @endif
-	                        	@if(!empty($line['sell_line_note']))({{$line['sell_line_note']}}) @endif 
-	                        	@if(!empty($line['lot_number']))<br> {{$line['lot_number_label']}}:  {{$line['lot_number']}} @endif 
+	                        	@if(!empty($line['sell_line_note']))({{$line['sell_line_note']}}) @endif
+	                        	@if(!empty($line['lot_number']))<br> {{$line['lot_number_label']}}:  {{$line['lot_number']}} @endif
 	                        	@if(!empty($line['product_expiry'])), {{$line['product_expiry_label']}}:  {{$line['product_expiry']}} @endif
 	                        </td>
 	                        <td class="quantity text-right">{{$line['quantity']}} {{$line['units']}}</td>
@@ -292,9 +292,9 @@
 										&nbsp;
 									</td>
 									<td>
-			                            {{$modifier['name']}} {{$modifier['variation']}} 
+			                            {{$modifier['name']}} {{$modifier['variation']}}
 			                            @if(!empty($modifier['sub_sku'])), {{$modifier['sub_sku']}} @endif @if(!empty($modifier['cat_code'])), {{$modifier['cat_code']}}@endif
-			                            @if(!empty($modifier['sell_line_note']))({{$modifier['sell_line_note']}}) @endif 
+			                            @if(!empty($modifier['sell_line_note']))({{$modifier['sell_line_note']}}) @endif
 			                        </td>
 									<td class="text-right">{{$modifier['quantity']}} {{$modifier['units']}} </td>
 									@if(empty($receipt_details->hide_price))
@@ -466,7 +466,7 @@
 	            </p>
             @endif
 
-            {{-- Barcode --}}
+             Barcode
 			@if($receipt_details->show_barcode)
 				<br/>
 				<img class="center-block" src="data:image/png;base64,{{DNS1D::getBarcodePNG($receipt_details->invoice_no, 'C128', 2,30,array(39, 48, 54), true)}}">

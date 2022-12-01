@@ -617,9 +617,10 @@ class SellPosController extends Controller
             'decimal_separator' => $business_details->decimal_separator,
         ];
         $receipt_details->currency = $currency_details;
+        $till_details="34344";
         
         if ($is_package_slip) {
-            $output['html_content'] = view('sale_pos.receipts.packing_slip', compact('receipt_details'))->render();
+            $output['html_content'] = view('sale_pos.receipts.packing_slip', compact('receipt_details','till_details'))->render();
             return $output;
         }
         //If print type browser - return the content, printer - return printer config data, and invoice format config
@@ -630,7 +631,7 @@ class SellPosController extends Controller
         } else {
             $layout = !empty($receipt_details->design) ? 'sale_pos.receipts.' . $receipt_details->design : 'sale_pos.receipts.classic';
 
-            $output['html_content'] = view($layout, compact('receipt_details'))->render();
+            $output['html_content'] = view($layout, compact('receipt_details','till_details'))->render();
         }
         
         return $output;

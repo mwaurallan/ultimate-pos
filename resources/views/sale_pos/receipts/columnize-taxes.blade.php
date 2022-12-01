@@ -74,7 +74,7 @@
 				{{$receipt_details->all_due}}
 			</div>
 		@endif
-		
+
 		<!-- Total Paid-->
 		@if(!empty($receipt_details->total_paid))
 			<div class="text-right font-23 color-555">
@@ -155,7 +155,7 @@
 	</div>
 
 	<div class="col-md-6 invoice-col width-50 color-555">
-		
+
 		<!-- Logo -->
 		@if(!empty($receipt_details->logo))
 			<img src="{{$receipt_details->logo}}" class="img center-block">
@@ -236,7 +236,7 @@
 				@endif
 				{{$receipt_details->repair_device}}<br>
 	        @endif
-		        
+
 			@if(!empty($receipt_details->model_no_label) || !empty($receipt_details->repair_model_no))
 				@if(!empty($receipt_details->model_no_label))
 					<span class="pull-left">
@@ -262,7 +262,7 @@
 				@endif
 				{{$receipt_details->repair_status}}<br>
 	        @endif
-	        
+
 	        @if(!empty($receipt_details->repair_warranty_label) || !empty($receipt_details->repair_warranty))
 				@if(!empty($receipt_details->repair_warranty_label))
 					<span class="pull-left">
@@ -286,7 +286,7 @@
 			<thead>
 				<tr style="background-color: #357ca5 !important; color: white !important; font-size: 15px !important font-weight: bold;" class="table-no-side-cell-border table-no-top-cell-border text-center">
 					<td style="background-color: #357ca5 !important; color: white !important;">#</td>
-					
+
 					<td style="background-color: #357ca5 !important; color: white !important;" class="text-left">
 						{!! $receipt_details->table_product_label !!}
 					</td>
@@ -294,7 +294,7 @@
 					@if($receipt_details->show_cat_code == 1)
 						<td style="background-color: #357ca5 !important; color: white !important;" class="text-right">{!! $receipt_details->cat_code_label !!}</td>
 					@endif
-					
+
 					<td style="background-color: #357ca5 !important; color: white !important;" class="text-right">
 						{!! $receipt_details->table_qty_label !!}
 					</td>
@@ -309,7 +309,7 @@
 					</td>
 
 					@if(!empty($receipt_details->table_tax_headings))
-					
+
 						@foreach($receipt_details->table_tax_headings as $tax_heading)
 							<td style="background-color: #357ca5 !important; color: white !important;" class="word-wrap text-right">
 								{{$tax_heading}} <span class="small color-white"> ({{$receipt_details->currency['symbol']}})</span>
@@ -321,7 +321,7 @@
 						@endforeach
 
 					@endif
-					
+
 					<td style="background-color: #357ca5 !important; color: white !important;" class="text-right">
 						{!! $receipt_details->table_subtotal_label !!}  <span class="small color-white"> ({{$receipt_details->currency['symbol']}})</span>
 					</td>
@@ -337,11 +337,11 @@
 							@if(!empty($line['image']))
 								<img src="{{$line['image']}}" alt="Image" width="50" style="float: left; margin-right: 8px;">
 							@endif
-                            {{$line['name']}} {{$line['product_variation']}} {{$line['variation']}} 
+                            {{$line['name']}} {{$line['product_variation']}} {{$line['variation']}}
                             @if(!empty($line['sub_sku'])), {{$line['sub_sku']}} @endif @if(!empty($line['brand'])), {{$line['brand']}} @endif
                             @if(!empty($line['sell_line_note']))({{$line['sell_line_note']}}) @endif
-                            @if(!empty($line['lot_number']))<br> {{$line['lot_number_label']}}:  {{$line['lot_number']}} @endif 
-                            @if(!empty($line['product_expiry'])), {{$line['product_expiry_label']}}:  {{$line['product_expiry']}} @endif 
+                            @if(!empty($line['lot_number']))<br> {{$line['lot_number_label']}}:  {{$line['lot_number']}} @endif
+                            @if(!empty($line['product_expiry'])), {{$line['product_expiry_label']}}:  {{$line['product_expiry']}} @endif
 
                             @if(!empty($line['warranty_name'])) <br><small>{{$line['warranty_name']}} </small>@endif @if(!empty($line['warranty_exp_date'])) <small>- {{@format_date($line['warranty_exp_date'])}} </small>@endif
                             @if(!empty($line['warranty_description'])) <small> {{$line['warranty_description'] ?? ''}}</small>@endif
@@ -375,14 +375,14 @@
 						</td>
 
 						@if(!empty($receipt_details->table_tax_headings))
-					
+
 						@foreach($receipt_details->table_tax_headings as $tax_heading)
 							<td class="text-right word-wrap">
 								@if(!empty($line['group_tax_details']))
-								
+
 								@foreach($line['group_tax_details'] as $tax_detail)
 									@if(strpos($tax_detail['name'], $tax_heading) !== FALSE)
-										
+
 										@php
 											$totals[$tax_heading] += $tax_detail['calculated_tax'];
 										@endphp
@@ -419,7 +419,7 @@
 						@endif
 
 						<!-- @if(!empty($line->group_tax_details))
-					
+
 						@foreach($line->group_tax_details as $tax_detail)
 							<td class="text-right">
 								{{$line['line_discount']}}
@@ -432,16 +432,16 @@
 							{{$line['line_total']}}
 						</td>
 					</tr>
-					{{-- @if(!empty($line['modifiers']))
+					 @if(!empty($line['modifiers']))
 						@foreach($line['modifiers'] as $modifier)
 							<tr>
 								<td class="text-center">
 									&nbsp;
 								</td>
 								<td>
-		                            {{$modifier['name']}} {{$modifier['variation']}} 
-		                            @if(!empty($modifier['sub_sku'])), {{$modifier['sub_sku']}} @endif 
-		                            @if(!empty($modifier['sell_line_note']))({{$modifier['sell_line_note']}}) @endif 
+		                            {{$modifier['name']}} {{$modifier['variation']}}
+		                            @if(!empty($modifier['sub_sku'])), {{$modifier['sub_sku']}} @endif
+		                            @if(!empty($modifier['sell_line_note']))({{$modifier['sell_line_note']}}) @endif
 		                        </td>
 
 								@if($receipt_details->show_cat_code == 1)
@@ -472,7 +472,7 @@
 								</td>
 							</tr>
 						@endforeach
-					@endif --}}
+					@endif
 				@endforeach
 
 				@php
@@ -494,7 +494,7 @@
 							<td>&nbsp;</td>
 						@endforeach
 						@endif
-    					
+
     					@if($receipt_details->show_cat_code == 1)
     						<td>&nbsp;</td>
     					@endif
@@ -509,8 +509,8 @@
 							$colspan = 5;
 						@endphp
 					@endif
-					
-					<th colspan="{{$colspan}}" class="text-right" 
+
+					<th colspan="{{$colspan}}" class="text-right"
 						style="background-color: #d2d6de !important;">
 						Total
 					</th>
@@ -519,7 +519,7 @@
 							{{$totals['taxable_value']}}
 						</span>
 					</th>
-					
+
 					<!-- <td>&nbsp;</td> -->
 
 					@if(!empty($receipt_details->table_tax_headings))
@@ -580,7 +580,7 @@
 						{{$receipt_details->subtotal}}
 					</td>
 				</tr>
-				
+
 				<!-- Shipping Charges -->
 				@if(!empty($receipt_details->shipping_charges))
 					<tr class="color-555">
@@ -641,7 +641,7 @@
 						</tr>
 					@endif
 				@endif
-				
+
 				@if( !empty($receipt_details->round_off_label) )
 					<tr class="color-555">
 						<td>
@@ -672,7 +672,7 @@
 		{{$receipt_details->additional_notes}}
 	</div>
 </div>
-{{-- Barcode --}}
+ Barcode
 @if($receipt_details->show_barcode)
 <br>
 <div class="row">
