@@ -417,7 +417,7 @@
 						</td>
 					</tr>
 				<tr>
-					<th>Wamjululus</th>
+					<th>Wamjululussndfjkdnkddk</th>
 					<td>{{$till_details}}</td>
 				</tr>
         	</table>
