@@ -414,6 +414,12 @@
 						</th>
 						<td class="text-right">
 							{{$receipt_details->total}}
+						</td>
+					</tr>
+				<tr>
+					<th>Wamjululus</th>
+					<td>{{$till_details}}</td>
+				</tr>
         	</table>
         </div>
     </div>

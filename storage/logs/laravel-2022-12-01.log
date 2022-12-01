@@ -1,0 +1,1 @@
+[2022-12-01 10:03:06] local.EMERGENCY: File:/var/www/html/ultimate-pos/storage/framework/views/6ba866be7214fa9996019c4da012adeb3a62f329.phpLine:471Message:Undefined property: stdClass::$totald (View: /var/www/html/ultimate-pos/resources/views/sale_pos/receipts/classic.blade.php)  
